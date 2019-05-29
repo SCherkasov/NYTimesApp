@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--most shared-->
+        <!--most viewed-->
         <scene sceneID="MF4-DQ-km4">
             <objects>
                 <viewController id="f0a-Zl-c1a" customClass="ThirdViewController" customModule="NYTimesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VvQ-cq-ICK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="most shared" id="ZYZ-5f-ROe"/>
+                    <tabBarItem key="tabBarItem" title="most viewed" id="ZYZ-5f-ROe"/>
                     <connections>
                         <outlet property="thirdTableView" destination="chH-9t-Kbr" id="DEI-Qx-m4c"/>
                     </connections>
@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="699" y="277"/>
         </scene>
-        <!--most viewed-->
+        <!--most shared-->
         <scene sceneID="qtP-qR-sfS">
             <objects>
                 <viewController id="dVL-bx-5Hg" customClass="SecondViewController" customModule="NYTimesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,7 +91,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iao-uK-QCu"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="most viewed" id="q8W-m0-z4e"/>
+                    <tabBarItem key="tabBarItem" title="most shared" id="q8W-m0-z4e"/>
                     <connections>
                         <outlet property="secondTableView" destination="ovd-TN-XXt" id="v3H-4Q-4B5"/>
                     </connections>
@@ -162,7 +162,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyO-pS-blS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-248" y="-453"/>
+            <point key="canvasLocation" x="-78" y="-454"/>
         </scene>
     </scenes>
 </document>

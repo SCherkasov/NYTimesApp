@@ -20,10 +20,7 @@ class FirstViewController: UIViewController {
       let nib = UINib(nibName: "FirstTableViewCell", bundle: nil)
       
       firstTableView.register(nib, forCellReuseIdentifier: "cell")
-      
-    }
-  
-
+  }
 }
 
 extension FirstViewController: UITableViewDataSource {
