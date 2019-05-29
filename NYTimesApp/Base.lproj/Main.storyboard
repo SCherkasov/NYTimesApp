@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bwL-RA-kGo">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--most shared-->
+        <scene sceneID="MF4-DQ-km4">
+            <objects>
+                <viewController id="f0a-Zl-c1a" customClass="ThirdViewController" customModule="NYTimesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PsY-md-Afg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="chH-9t-Kbr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pvw-yG-hKZ" customClass="ThirdTableViewCell" customModule="NYTimesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pvw-yG-hKZ" id="nnS-pD-zHG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="f0a-Zl-c1a" id="jvd-hf-psp"/>
+                                    <outlet property="delegate" destination="f0a-Zl-c1a" id="Dfa-S9-Jax"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="chH-9t-Kbr" firstAttribute="leading" secondItem="VvQ-cq-ICK" secondAttribute="leading" id="4lw-ov-Hlv"/>
+                            <constraint firstItem="chH-9t-Kbr" firstAttribute="bottom" secondItem="VvQ-cq-ICK" secondAttribute="bottom" id="5D6-9q-g02"/>
+                            <constraint firstItem="chH-9t-Kbr" firstAttribute="trailing" secondItem="VvQ-cq-ICK" secondAttribute="trailing" id="6xm-6e-vLh"/>
+                            <constraint firstItem="chH-9t-Kbr" firstAttribute="top" secondItem="VvQ-cq-ICK" secondAttribute="top" id="Kj8-ay-ifr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VvQ-cq-ICK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="most shared" id="ZYZ-5f-ROe"/>
+                    <connections>
+                        <outlet property="thirdTableView" destination="chH-9t-Kbr" id="DEI-Qx-m4c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4o-yy-V2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="277"/>
+        </scene>
+        <!--most viewed-->
+        <scene sceneID="qtP-qR-sfS">
+            <objects>
+                <viewController id="dVL-bx-5Hg" customClass="SecondViewController" customModule="NYTimesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Isd-ZL-Yr1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ovd-TN-XXt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="f9E-AW-1p9">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f9E-AW-1p9" id="NaA-a1-NV1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dVL-bx-5Hg" id="djg-DC-gEY"/>
+                                    <outlet property="delegate" destination="dVL-bx-5Hg" id="087-RM-qGc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ovd-TN-XXt" firstAttribute="leading" secondItem="iao-uK-QCu" secondAttribute="leading" id="I8c-Se-FYV"/>
+                            <constraint firstItem="ovd-TN-XXt" firstAttribute="trailing" secondItem="iao-uK-QCu" secondAttribute="trailing" id="QSK-CS-poo"/>
+                            <constraint firstItem="ovd-TN-XXt" firstAttribute="bottom" secondItem="iao-uK-QCu" secondAttribute="bottom" id="U5G-zW-ijs"/>
+                            <constraint firstItem="ovd-TN-XXt" firstAttribute="top" secondItem="iao-uK-QCu" secondAttribute="top" id="YB8-Yg-cUE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iao-uK-QCu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="most viewed" id="q8W-m0-z4e"/>
+                    <connections>
+                        <outlet property="secondTableView" destination="ovd-TN-XXt" id="v3H-4Q-4B5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Tx-Vd-OJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-77" y="277"/>
+        </scene>
+        <!--most emailed-->
+        <scene sceneID="8jM-Jm-T7I">
+            <objects>
+                <viewController id="UwD-U6-rQW" customClass="FirstViewController" customModule="NYTimesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n4x-XW-qpq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pKI-Vt-66n">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="crs-iV-kTN">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crs-iV-kTN" id="9qR-6Y-vR8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="UwD-U6-rQW" id="q3u-cr-fLR"/>
+                                    <outlet property="delegate" destination="UwD-U6-rQW" id="MfZ-O8-5OU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pKI-Vt-66n" firstAttribute="top" secondItem="wk6-G3-Soh" secondAttribute="top" id="1Cx-VO-VOh"/>
+                            <constraint firstItem="pKI-Vt-66n" firstAttribute="trailing" secondItem="wk6-G3-Soh" secondAttribute="trailing" id="jYN-E5-EUP"/>
+                            <constraint firstItem="pKI-Vt-66n" firstAttribute="bottom" secondItem="wk6-G3-Soh" secondAttribute="bottom" id="kHC-cX-YfH"/>
+                            <constraint firstItem="pKI-Vt-66n" firstAttribute="leading" secondItem="wk6-G3-Soh" secondAttribute="leading" id="wmG-Mh-HxP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wk6-G3-Soh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="most emailed" id="alP-kt-xui"/>
+                    <connections>
+                        <outlet property="firstTableView" destination="pKI-Vt-66n" id="bt8-wT-k83"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxt-pr-hi9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-897.10144927536237" y="276.5625"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GI1-XH-Lnz">
+            <objects>
+                <tabBarController id="bwL-RA-kGo" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sk8-AA-4w0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UwD-U6-rQW" kind="relationship" relationship="viewControllers" id="tL2-Jo-Ky8"/>
+                        <segue destination="dVL-bx-5Hg" kind="relationship" relationship="viewControllers" id="yYH-Ox-tgm"/>
+                        <segue destination="f0a-Zl-c1a" kind="relationship" relationship="viewControllers" id="OMG-U0-NLr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UyO-pS-blS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-248" y="-453"/>
+        </scene>
+    </scenes>
+</document>
