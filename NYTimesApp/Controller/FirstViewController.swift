@@ -36,6 +36,7 @@ class FirstViewController: UIViewController {
           print(self.newArray.last!)
           
         }
+        self.firstTableView.reloadData()
       }
       
     }
