@@ -9,11 +9,12 @@
 import UIKit
 import Alamofire
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, NewsDelegate {
   
   @IBOutlet var secondTableView: UITableView!
   
-  var mastSharedArray = [String]()
+  var news: [String] = []
+  var newsSerice = NewsService()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,25 +23,15 @@ class SecondViewController: UIViewController {
     
     secondTableView.register(nib, forCellReuseIdentifier: "cell")
     
-    let mostSharedUrl = "https://api.nytimes.com/svc/mostpopular/v2/shared/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
+    newsSerice.delegate = self
     
-    AF.request(mostSharedUrl).responseJSON { response in
-      
-      if let json = response.value {
-        let jsonDict = json as! Dictionary<String, Any>
-        let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
-        
-        for i in captinJs {
-          self.mastSharedArray.append(i["title"] as! String)
-          print(self.mastSharedArray.last!)
-          
-        }
-        self.secondTableView.reloadData()
-      }
-      
-    }
+    newsSerice.loadMostSharedUrl()
+  }
+  
+  func newsLoaded(_ news: [String]) {
+    self.news = news
     
-    print("Loading")
+    secondTableView.reloadData()
   }
 }
 
@@ -48,14 +39,14 @@ extension SecondViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return mastSharedArray.count
+    return self.news.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                              for: indexPath) as! SecondTableViewCell
     
-    cell.secondLabel.text = mastSharedArray[indexPath.row]
+    cell.secondLabel.text = self.news[indexPath.row]
     
     return cell
   }

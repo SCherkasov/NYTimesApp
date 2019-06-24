@@ -9,11 +9,12 @@
 import UIKit
 import Alamofire
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: UIViewController, NewsDelegate {
   
   @IBOutlet var thirdTableView: UITableView!
   
-  var mostViewedArray = [String]()
+  var news: [String] = []
+  var newsSerice = NewsService()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,40 +23,31 @@ class ThirdViewController: UIViewController {
     
     thirdTableView.register(nib, forCellReuseIdentifier: "cell")
     
-    let mostViewedUrl = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
+    newsSerice.delegate = self
     
-    AF.request(mostViewedUrl).responseJSON { response in
-      
-      if let json = response.value {
-        let jsonDict = json as! Dictionary<String, Any>
-        let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
-        
-        for i in captinJs {
-          self.mostViewedArray.append(i["title"] as! String)
-          print(self.mostViewedArray.last!)
-          
-        }
-        self.thirdTableView.reloadData()
+    newsSerice.loadMostViewedUrl()
+    
       }
-      
-    }
-    print("Loading")
-  }
   
+  func newsLoaded(_ news: [String]) {
+    self.news = news
+    
+    thirdTableView.reloadData()
+  }
 }
 
 extension ThirdViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return mostViewedArray.count
+    return self.news.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                              for: indexPath) as! ThirdTableViewCell
     
-    cell.thirdLabel.text = mostViewedArray[indexPath.row]
+    cell.thirdLabel.text = self.news[indexPath.row]
     
     return cell
   }

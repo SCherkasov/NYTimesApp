@@ -36,14 +36,14 @@ class NewsService {
         let jsonDict = json as! Dictionary<String, Any>
         let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
         
-        let array: [String] = []
+        var array: [String] = []
         
         for i in captinJs {
           array.append(i["title"] as! String)
           print(array.last!)
         }
         
-        if let d = delegate {
+        if let d = self.delegate {
           d.newsLoaded(array)
         }
       }
