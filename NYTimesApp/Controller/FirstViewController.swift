@@ -9,12 +9,13 @@
 import UIKit
 import Alamofire
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, NewsDelegate {
  
   @IBOutlet var firstTableView: UITableView!
   
-  var delegate: ConnectionDelegate!
-  var network = Connection()
+  var news: [String] = []
+  
+  var newsSerice = NewsService()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,26 +24,29 @@ class FirstViewController: UIViewController {
     
     firstTableView.register(nib, forCellReuseIdentifier: "cell")
     
-    delegate.connection(url: network.mostEmailedUrl, array: network.mostEmailedArray)
+    newsSerice.delegate = self
     
+    newsSerice.loadMostEmailedUrl()
   }
   
+  func newsLoaded(_ news: [String]) {
+    self.news = news
+  }
 }
 
 extension FirstViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return network.mostEmailedArray.count
+    return self.news.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                              for: indexPath) as! FirstTableViewCell
-    
-    cell.firstLabel.text = network.mostEmailedArray[indexPath.row]
+  
+    cell.firstLabel.text = self.news[indexPath.row]
     
     return cell
   }
-  
 }
