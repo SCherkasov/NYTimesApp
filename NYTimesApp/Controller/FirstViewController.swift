@@ -10,10 +10,11 @@ import UIKit
 import Alamofire
 
 class FirstViewController: UIViewController {
-  
+ 
   @IBOutlet var firstTableView: UITableView!
   
-  var mostEmailedArray = [String]()
+  var delegate: ConnectionDelegate!
+  var network = Connection()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,40 +23,24 @@ class FirstViewController: UIViewController {
     
     firstTableView.register(nib, forCellReuseIdentifier: "cell")
     
-    let mostEmailedUrl = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
-    
-    AF.request(mostEmailedUrl).responseJSON { response in
-      
-      if let json = response.value {
-        let jsonDict = json as! Dictionary<String, Any>
-        let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
-        
-        for i in captinJs {
-          self.mostEmailedArray.append(i["title"] as! String)
-          print(self.mostEmailedArray.last!)
-          
-        }
-        self.firstTableView.reloadData()
-      }
-      
-    }
-    print("Loading")
+    delegate.connection(url: network.mostEmailedUrl, array: network.mostEmailedArray)
     
   }
+  
 }
 
 extension FirstViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
-    return mostEmailedArray.count
+    return network.mostEmailedArray.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                              for: indexPath) as! FirstTableViewCell
     
-    cell.firstLabel.text = mostEmailedArray[indexPath.row]
+    cell.firstLabel.text = network.mostEmailedArray[indexPath.row]
     
     return cell
   }

@@ -10,39 +10,39 @@ import Foundation
 import Alamofire
 
 protocol ConnectionDelegate {
-  func wasConnected(_ connected: Connection)
+  func connection(url: String, array: [String]) -> [String]
 }
 
-class Connection: ConnectionDelegate {
+class Connection {
   
-  var url: String
-  var array: [String]
-  var tableView: UITableView!
+  let mostEmailedUrl = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
   
-  init(url: String, array: [String], tableView: UITableView!) {
-    self.url = url
-    self.array = array
-    self.tableView = tableView
-  }
+  let mostSharedUrl = "https://api.nytimes.com/svc/mostpopular/v2/shared/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
   
-  func wasConnected(_ connected: Connection) {
-    var _ = Connection(url: url, array: array, tableView: tableView)
+  let mostViewedUrl = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
+  
+  var mostEmailedArray = [String]()
+  var mastSharedArray = [String]()
+  var mostViewedArray = [String]()
+  
+  func connection(url: String, array: [String]) -> [String] {
+
     AF.request(url).responseJSON { response in
-      
       if let json = response.value {
         let jsonDict = json as! Dictionary<String, Any>
         let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
         
         for i in captinJs {
-          self.array.append(i["title"] as! String)
-          print(self.array.last!)
           
+          array.append(i["title"] as! String)
+          print(array.last!)
         }
-        self.tableView.reloadData()
       }
       
     }
     print("Loading")
+    
+    return array
   }
 }
 
