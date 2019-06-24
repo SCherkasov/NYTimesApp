@@ -11,6 +11,7 @@ import UIKit
 class SecondTableViewCell: UITableViewCell {
 
   @IBOutlet var secondLabel: UILabel!
+  @IBOutlet var dateOfPostLabel: UILabel!
   
   override func awakeFromNib() {
         super.awakeFromNib()

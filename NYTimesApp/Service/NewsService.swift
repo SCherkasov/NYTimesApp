@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol NewsDelegate {
-  func newsLoaded(_ news: [String])
+  func newsLoaded(_ news: [String], _ dateOfPost: [String])
 }
 
 class NewsService {
@@ -22,11 +22,7 @@ class NewsService {
   private static let mostSharedUrl = "https://api.nytimes.com/svc/mostpopular/v2/shared/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
   
   private static let mostViewedUrl = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=MjXoOXYJ1lCIXHaEQZMZwg1yFCGKQzr7"
-  
-  var mostEmailedArray = [String]()
-  var mastSharedArray = [String]()
-  var mostViewedArray = [String]()
-  
+    
   func load(url: String) {
     print("Loading 1")
     
@@ -37,14 +33,19 @@ class NewsService {
         let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
         
         var array: [String] = []
+        var publishedDayArray: [String] = []
         
         for i in captinJs {
           array.append(i["title"] as! String)
           print(array.last!)
         }
         
+        for i in captinJs {
+          publishedDayArray.append(i["published_date"] as! String)
+          print(publishedDayArray.last!)
+        }
         if let d = self.delegate {
-          d.newsLoaded(array)
+          d.newsLoaded(array, publishedDayArray)
         }
       }
     }

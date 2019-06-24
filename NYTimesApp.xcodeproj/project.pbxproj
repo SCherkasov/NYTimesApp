@@ -102,8 +102,8 @@
 		8A5F2A36229EC1350015A876 /* NYTimesApp */ = {
 			isa = PBXGroup;
 			children = (
-				9D3D35C222C144E400AE55B1 /* Service */,
 				8A5F2A37229EC1350015A876 /* AppDelegate.swift */,
+				9D3D35C222C144E400AE55B1 /* Service */,
 				8A5F2A58229ECB550015A876 /* Controller */,
 				8A5F2A57229ECB460015A876 /* View */,
 				8A5F2A3B229EC1350015A876 /* Main.storyboard */,

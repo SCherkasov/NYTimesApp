@@ -14,6 +14,7 @@ class SecondViewController: UIViewController, NewsDelegate {
   @IBOutlet var secondTableView: UITableView!
   
   var news: [String] = []
+  var day: [String] = []
   var newsSerice = NewsService()
   
   override func viewDidLoad() {
@@ -28,8 +29,9 @@ class SecondViewController: UIViewController, NewsDelegate {
     newsSerice.loadMostSharedUrl()
   }
   
-  func newsLoaded(_ news: [String]) {
+  func newsLoaded(_ news: [String], _ dateOfPost: [String]) {
     self.news = news
+    self.day = dateOfPost
     
     secondTableView.reloadData()
   }
@@ -47,6 +49,7 @@ extension SecondViewController: UITableViewDataSource {
                                              for: indexPath) as! SecondTableViewCell
     
     cell.secondLabel.text = self.news[indexPath.row]
+    cell.dateOfPostLabel.text = self.day[indexPath.row]
     
     return cell
   }

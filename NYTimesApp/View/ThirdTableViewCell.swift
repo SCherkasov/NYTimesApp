@@ -11,7 +11,7 @@ import UIKit
 class ThirdTableViewCell: UITableViewCell {
   
   @IBOutlet var thirdLabel: UILabel!
-  
+  @IBOutlet var dateOfPostLabel: UILabel!
   
     override func awakeFromNib() {
         super.awakeFromNib()
