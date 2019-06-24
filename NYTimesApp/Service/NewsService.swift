@@ -28,8 +28,10 @@ class NewsService {
   var mostViewedArray = [String]()
   
   func load(url: String) {
-    print("Loading")
+    print("Loading 1")
+    
     AF.request(url).responseJSON { response in
+      print("Loaded")
       if let json = response.value {
         let jsonDict = json as! Dictionary<String, Any>
         let captinJs = jsonDict["results"] as! Array<Dictionary<String, Any>>
@@ -44,10 +46,10 @@ class NewsService {
         if let d = delegate {
           d.newsLoaded(array)
         }
-        
-        print("Loaded")
       }
     }
+    
+    print("Loading 2")
   }
   
   func loadMostEmailedUrl() {

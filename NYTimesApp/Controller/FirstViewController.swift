@@ -31,6 +31,8 @@ class FirstViewController: UIViewController, NewsDelegate {
   
   func newsLoaded(_ news: [String]) {
     self.news = news
+    
+    firstTableView.reloadData()
   }
 }
 
