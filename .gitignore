@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/c,swift,xcode,objective-c
 
+# Cocoapods
+Pods/
+
 ### C ###
 # Prerequisites
 *.d
